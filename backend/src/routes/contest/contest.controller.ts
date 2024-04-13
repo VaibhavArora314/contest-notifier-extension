@@ -1,14 +1,16 @@
 import { Request, Response } from "express";
-import {
-  codechefContests,
-  codeforcesContests,
-  leetcodeContests,
-} from "../../store";
+import getCodeforcesContests from "../../platforms/codeforces";
+import getLeetcodeContests from "../../platforms/leetcode";
+import getCodechefContests from "../../platforms/codechef";
 
 export const UpcomingContestsController = async (
   req: Request,
   res: Response
 ) => {
+  const codechefContests = await getCodechefContests();
+  const leetcodeContests = await getLeetcodeContests();
+  const codeforcesContests = await getCodeforcesContests();
+
   const contests = [
     ...codechefContests,
     ...leetcodeContests,
