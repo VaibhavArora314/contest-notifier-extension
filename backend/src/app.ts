@@ -1,13 +1,9 @@
-import express, {Request, Response} from "express";
+import express from "express";
 import rootRouter from "./routes";
+import cors from "cors";
 
 const app = express();
-
-app.get('/', (req:Request,res:Response) => {
-    res.json({
-        message: "Hello"
-    })
-})
+app.use(cors());
 
 app.use('/api', rootRouter);
 
