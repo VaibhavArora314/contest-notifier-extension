@@ -5,13 +5,6 @@
     "action": {
         "default_popup": "index.html"
     },
-    "permissions": [
-        "scripting"
-    ],
-    "host_permissions": [
-        "http://*/*",
-        "https://*/*"
-    ],
     "icons": {
         "48": "icons48.png",
         "96": "icons96.png"
