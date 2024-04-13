@@ -37,7 +37,7 @@ const parseLeetcodeContests = (data: [any]) => {
 
     const startMs = element?.startTime*1000;
     const duration = element?.duration/60 || 90; // minutes
-    const endMs = startMs + duration*60*60*1000;
+    const endMs = startMs + duration*60*1000;
 
     const contest: CONTEST_INTERFACE = {
       site: PLATFORM.LEETCODE,

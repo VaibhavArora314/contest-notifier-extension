@@ -6,9 +6,9 @@ export enum PLATFORM {
 
 export interface CONTEST_INTERFACE {
     site: PLATFORM,
-    title: String,
-    startTime: Number,
-    endTime: Number,
-    duration: Number,
-    url: String
+    title: string,
+    startTime: number,
+    endTime: number,
+    duration: number,
+    url: string
 }
