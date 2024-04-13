@@ -24,8 +24,8 @@ const parseCodechefContests = (data: [any]) => {
     const contest_name = element?.contest_name || "Codechef contest";
     const url = CODECHEF_BASE_URL + element?.contest_code;
 
-    const startMs = new Date(element?.contest_start_date).getTime();
-    const endMs = new Date(element?.contest_end_date).getTime();
+    const startMs = new Date(element?.contest_start_date_iso).getTime();
+    const endMs = new Date(element?.contest_end_date_iso).getTime();
     const duration = element?.duration || 120; // minutes
 
     const contest: CONTEST_INTERFACE = {
