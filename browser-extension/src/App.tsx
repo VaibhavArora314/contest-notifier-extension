@@ -6,8 +6,6 @@ import ContestList from './components/ContestList';
 axios.defaults.baseURL = "https://cp-list.vercel.app/api";
 
 function App() {
-  // const [contests,setContests] = ;
-
   return (
     <div className='min-h-[100vh] p-4 bg-gray-100'>
       <div className='container mx-auto h-full'>
