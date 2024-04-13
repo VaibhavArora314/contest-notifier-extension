@@ -45,7 +45,11 @@ const parseCodechefContests = (data: [any]) => {
 
 const getCodechefContests = async () => {
   const data = await fetchCodechefContests();
-  return parseCodechefContests(data);
+  const parsedData = parseCodechefContests(data);
+
+  console.log("Feteched data from codechef!",parsedData.length);
+
+  return parsedData;
 };
 
 export default getCodechefContests;

@@ -57,6 +57,9 @@ const parseLeetcodeContests = (data: [any]) => {
 const getLeetcodeContests = async () => {
   const data = await fetchLeetcodeContests();
   const parsedData = parseLeetcodeContests(data);
+
+  console.log("Feteched data from leetcode!",parsedData.length);
+
   return parsedData;
 };
 

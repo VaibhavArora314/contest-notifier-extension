@@ -46,6 +46,9 @@ const parseCodeforcesContests = (data: [any]) => {
 const getCodeforcesContests = async () => {
   const data = await fetchCodeforcesContests();
   const parsedData = parseCodeforcesContests(data);
+
+  console.log("Feteched data from codeforces!",parsedData.length);
+
   return parsedData;
 };
 
