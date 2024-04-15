@@ -6,7 +6,7 @@
         "default_popup": "index.html"
     },
     "icons": {
-        "48": "icons48.png",
-        "96": "icons96.png"
+        "48": "logo/icons48.png",
+        "96": "logo/icons96.png"
     }
 }
