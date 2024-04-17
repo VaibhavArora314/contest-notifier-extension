@@ -10,8 +10,10 @@ const fetchCodechefContests = async () => {
     const response = await axios.get(CODECHEF_API);
     const data = response.data;
 
-    if (data?.future_contests) return data.future_contests;
-    else return [];
+    let result = [];
+    if (data?.present_contests) result = data?.present_contests;
+    if (data?.future_contests) result = [...result, ...data.future_contests];
+    return result;
   } catch (error) {
     return [];
   }
