@@ -1,7 +1,8 @@
 export enum PLATFORM {
     CODECHEF = "Codechef",
     CODEFORCES = "Codeforces",
-    LEETCODE = "Leetcode"
+    LEETCODE = "Leetcode",
+    GEEKSFORGEEKS = "GeeksForGeeks"
 }
 
 export interface CONTEST_INTERFACE {

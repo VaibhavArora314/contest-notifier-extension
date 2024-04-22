@@ -3,6 +3,9 @@ import getCodeforcesContests from "../../platforms/codeforces";
 import getLeetcodeContests from "../../platforms/leetcode";
 import getCodechefContests from "../../platforms/codechef";
 import { CONTEST_INTERFACE, PLATFORM } from "../../types";
+import getGfgContests from "../../platforms/geeksforgeeks";
+
+const defaultArray = [PLATFORM.CODECHEF, PLATFORM.CODEFORCES, PLATFORM.LEETCODE];
 
 export const UpcomingContestsController = async (
   req: Request,
@@ -11,11 +14,12 @@ export const UpcomingContestsController = async (
   let codeforcesContests: CONTEST_INTERFACE[] = [],
     leetcodeContests: CONTEST_INTERFACE[] = [],
     codechefContests: CONTEST_INTERFACE[] = [],
+    gfgContests: CONTEST_INTERFACE[] = [],
     platforms: string[];
   try {
     platforms = JSON.parse(req.query.platforms as string);
     if (!platforms || !Array.isArray(platforms))
-      platforms = [PLATFORM.CODECHEF, PLATFORM.CODEFORCES, PLATFORM.LEETCODE];
+      throw new Error();
 
     if (platforms.includes(PLATFORM.CODECHEF))
       codechefContests = await getCodechefContests();
@@ -23,8 +27,10 @@ export const UpcomingContestsController = async (
       leetcodeContests = await getLeetcodeContests();
     if (platforms.includes(PLATFORM.CODEFORCES))
       codeforcesContests = await getCodeforcesContests();
+    if (platforms.includes(PLATFORM.GEEKSFORGEEKS))
+      gfgContests = await getGfgContests();
   } catch (error) {
-    platforms = [PLATFORM.CODECHEF, PLATFORM.CODEFORCES, PLATFORM.LEETCODE];
+    platforms = defaultArray;
 
     codechefContests = await getCodechefContests();
     leetcodeContests = await getLeetcodeContests();
@@ -35,6 +41,7 @@ export const UpcomingContestsController = async (
     ...codechefContests,
     ...leetcodeContests,
     ...codeforcesContests,
+    ...gfgContests
   ];
   contests.sort(
     (contest1, contest2) =>
