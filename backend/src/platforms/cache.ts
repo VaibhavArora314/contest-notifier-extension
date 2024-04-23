@@ -11,15 +11,33 @@ let codeforcesContests: CONTEST_INTERFACE[] = [],
   codechefContests: CONTEST_INTERFACE[] = [],
   gfgContests: CONTEST_INTERFACE[] = [];
 
-const refreshCache = async () => {
+const updateCodechefContests = async () => {
+    codechefContests = await getCodechefContests();
+    console.log("Updated codechef contests!");
+}
+
+const updateCodeforcesContest = async () => {
+    codeforcesContests = await getCodeforcesContests();
+    console.log("Updated codeforce contests!");
+}
+
+const updateLeetcodeContest = async () => {
+    leetcodeContests = await getLeetcodeContests();
+    console.log("Updated leetcode contests!");
+}
+
+const updateGfgContest = async () => {
+    gfgContests = await getGfgContests();
+    console.log("Updated gfg contests!");
+}
+
+const refreshCache = () => {
     console.log("Refreshing cache");
 
-    codechefContests = await getCodechefContests();
-    codeforcesContests = await getCodeforcesContests();
-    leetcodeContests = await getLeetcodeContests();
-    gfgContests = await getGfgContests();
-
-    console.log("Refreshed cache");
+    updateCodechefContests();
+    updateCodeforcesContest();
+    updateGfgContest();
+    updateLeetcodeContest();
 }
 
 const startReload = () => {

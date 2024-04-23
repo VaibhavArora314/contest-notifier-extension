@@ -50,7 +50,7 @@ const getGfgContests = async () => {
   const data = await fetchGfgContests();
   const parsedData = parseGfgContests(data);
 
-  console.log("Feteched data from gfg!",parsedData.length);
+  console.log("Fetched data from gfg!",parsedData.length);
 
   return parsedData;
 };
