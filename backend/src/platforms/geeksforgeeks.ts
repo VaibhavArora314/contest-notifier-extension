@@ -31,9 +31,6 @@ const parseGfgContests = (data: [any]) => {
     const endMs = endDate.getTime();
     const duration:number = Math.abs(endDate.getTime() - startDate.getTime())/(1000*60) || 120; // minutes
 
-    console.log(startDate.toLocaleDateString());
-    console.log(endDate.toLocaleDateString());
-
     const contest: CONTEST_INTERFACE = {
       site: PLATFORM.GEEKSFORGEEKS,
       title: contest_name,
