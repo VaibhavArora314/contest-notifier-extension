@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { CONTEST_INTERFACE, PLATFORM } from "../../types";
-import { codechefContests, codeforcesContests, gfgContests, leetcodeContests } from "../../platforms/cache";
+import { codechefContests, codeforcesContests, gfgContests, leetcodeContests, refreshCache } from "../../platforms/cache";
 
 const defaultArray = [PLATFORM.CODECHEF, PLATFORM.CODEFORCES, PLATFORM.LEETCODE];
 
@@ -18,6 +18,8 @@ export const UpcomingContestsController = async (
   }
 
   let contests:CONTEST_INTERFACE[] = [];
+
+  await refreshCache();
 
   if (platforms.includes(PLATFORM.CODECHEF))
     contests = [...contests,...codechefContests];
