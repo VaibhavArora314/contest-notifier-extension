@@ -20,12 +20,18 @@ const refreshCache = async () => {
     lastRefreshTime = currentTime;
     console.log("Refreshing cache");
 
-    codechefContests = await getCodechefContests();
-    codeforcesContests = await getCodeforcesContests();
-    leetcodeContests = await getLeetcodeContests();
-    gfgContests = await getGfgContests();
+    try {
+        [codechefContests, codeforcesContests, leetcodeContests, gfgContests] = await Promise.all([
+            getCodechefContests(),
+            getCodeforcesContests(),
+            getLeetcodeContests(),
+            getGfgContests()
+        ]);
 
-    console.log("Refreshed cache");
+        console.log("Refreshed cache");
+    } catch (error) {
+        console.error("Error refreshing cache:", error);
+    }
 }
 
 export {
