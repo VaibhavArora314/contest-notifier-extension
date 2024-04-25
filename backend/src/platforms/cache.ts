@@ -1,17 +1,20 @@
 import { CONTEST_INTERFACE } from "../types";
+import { getAtcoderContests } from "./atcoder";
 import getCodechefContests from "./codechef";
 import getCodeforcesContests from "./codeforces";
 import getGfgContests from "./geeksforgeeks";
 import getLeetcodeContests from "./leetcode";
 
 const REFRESH_TIMER = 6*60*60*1000;
+// const REFRESH_TIMER = 0;
 
 let lastRefreshTime = new Date(1970, 0, 1).getTime();
 
 let codeforcesContests: CONTEST_INTERFACE[] = [],
   leetcodeContests: CONTEST_INTERFACE[] = [],
   codechefContests: CONTEST_INTERFACE[] = [],
-  gfgContests: CONTEST_INTERFACE[] = [];
+  gfgContests: CONTEST_INTERFACE[] = [],
+  atcoderContests: CONTEST_INTERFACE[] = [];
 
 const refreshCache = async () => {
     const currentTime = new Date().getTime();
@@ -21,11 +24,12 @@ const refreshCache = async () => {
     console.log("Refreshing cache");
 
     try {
-        [codechefContests, codeforcesContests, leetcodeContests, gfgContests] = await Promise.all([
+        [codechefContests, codeforcesContests, leetcodeContests, gfgContests, atcoderContests] = await Promise.all([
             getCodechefContests(),
             getCodeforcesContests(),
             getLeetcodeContests(),
-            getGfgContests()
+            getGfgContests(),
+            getAtcoderContests()
         ]);
 
         console.log("Refreshed cache");
@@ -39,5 +43,6 @@ export {
     codeforcesContests,
     leetcodeContests,
     gfgContests,
+    atcoderContests,
     refreshCache
 }

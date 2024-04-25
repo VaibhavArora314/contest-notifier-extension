@@ -5,16 +5,18 @@ import { CONTEST_INTERFACE, PLATFORM } from "../types/contest";
 const FetchInteravlMs = 10 * 60 * 1000;
 const PLATFORM_KEY = "platform";
 
+const DEFAULT_PLATFORMS = [
+  PLATFORM.CODECHEF,
+  PLATFORM.CODEFORCES,
+  PLATFORM.LEETCODE,
+]
+
 const useContests = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [contests, setContests] = useState<CONTEST_INTERFACE[]>([]);
   const [platforms, setPlatforms] = useState<string[]>(
-    JSON.parse(localStorage.getItem(PLATFORM_KEY) as string) || [
-      PLATFORM.CODECHEF,
-      PLATFORM.CODEFORCES,
-      PLATFORM.LEETCODE,
-    ]
+    JSON.parse(localStorage.getItem(PLATFORM_KEY) as string) || DEFAULT_PLATFORMS
   );
 
   useEffect(() => {
