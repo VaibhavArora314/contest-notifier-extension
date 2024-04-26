@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { CONTEST_INTERFACE, PLATFORM } from "../../types";
-import { atcoderContests, codechefContests, codeforcesContests, gfgContests, leetcodeContests, refreshCache } from "../../platforms/cache";
+import { atcoderContests, codechefContests, codeforcesContests, codingninjaContests, gfgContests, leetcodeContests, refreshCache } from "../../platforms/cache";
 
 const defaultArray = [PLATFORM.CODECHEF, PLATFORM.CODEFORCES, PLATFORM.LEETCODE];
 
@@ -31,6 +31,8 @@ export const UpcomingContestsController = async (
     contests = [...contests,...gfgContests];
   if (platforms.includes(PLATFORM.ATCODER))
     contests = [...contests,...atcoderContests];
+  if (platforms.includes(PLATFORM.CODINGNINJAS))
+    contests = [...contests,...codingninjaContests];
 
   contests.sort(
     (contest1, contest2) =>
