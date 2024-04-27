@@ -29,8 +29,11 @@ export const getAtcoderContests = async () => {
             const [hours, minutes] = duration.split(':');
             const durationMinutes = Number(hours) * 60 + Number(minutes);
             
-            const startTime = new Date(formattedStartTimeIso).getTime();
-            const endTime = new Date(formattedStartTimeIso).getTime() + durationMinutes * 60 * 1000;
+            const startTimeJST = new Date(formattedStartTimeIso);
+            const startTime = new Date(startTimeJST.getTime() - (3.5 * 60 * 60 * 1000)).getTime(); // JST is IST+3.5
+
+            console.log(new Date(formattedStartTimeIso));
+            const endTime = startTime + durationMinutes * 60 * 1000;
             
             contests.push({
                 site: PLATFORM.ATCODER,

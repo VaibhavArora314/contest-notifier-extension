@@ -5,10 +5,13 @@ import { CONTEST_INTERFACE, PLATFORM } from "../types/contest";
 const FetchInteravlMs = 10 * 60 * 1000;
 const PLATFORM_KEY = "platform";
 
-const DEFAULT_PLATFORMS = [
+export const DEFAULT_PLATFORMS = [
   PLATFORM.CODECHEF,
   PLATFORM.CODEFORCES,
   PLATFORM.LEETCODE,
+  PLATFORM.ATCODER,
+  PLATFORM.GEEKSFORGEEKS,
+  PLATFORM.CODINGNINJAS
 ]
 
 const useContests = () => {

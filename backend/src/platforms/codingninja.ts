@@ -51,6 +51,4 @@ const getCodingNinjaContests = async () => {
   return parsedData;
 };
 
-getCodingNinjaContests();
-
 export default getCodingNinjaContests;

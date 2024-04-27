@@ -14,9 +14,12 @@ const Card = ({ contest }: Props) => {
   const startDate = new Date(contest.startTime),
     endDate = new Date(contest.endTime);
   let logoUrl = "images/";
-  if (contest.site == PLATFORM.CODECHEF) logoUrl += "codechef.png";
+  if (contest.site == PLATFORM.CODECHEF) logoUrl += "codechef.jpeg";
   else if (contest.site == PLATFORM.LEETCODE) logoUrl += "leetcode.png";
   else if (contest.site == PLATFORM.CODEFORCES) logoUrl += "codeforces.png";
+  else if (contest.site == PLATFORM.ATCODER) logoUrl += "atcoder.png";
+  else if (contest.site == PLATFORM.GEEKSFORGEEKS) logoUrl += "geeksforgeeks.png";
+  else if (contest.site == PLATFORM.CODINGNINJAS) logoUrl += "codingninja.png"
 
   const curTime = new Date();
   let currentStatus: STATUS = STATUS.yetToStart;

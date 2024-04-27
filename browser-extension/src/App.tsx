@@ -7,8 +7,8 @@ import useTheme from "./hooks/useTheme";
 import Credits from "./components/Credits";
 import useContests from "./hooks/useContests";
 
-// axios.defaults.baseURL = "http://localhost:3000/api";
-axios.defaults.baseURL = "https://cp-list.vercel.app/api";
+axios.defaults.baseURL = "http://localhost:3000/api";
+// axios.defaults.baseURL = "https://cp-list.vercel.app/api";
 
 function App() {
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -23,7 +23,7 @@ function App() {
             className={"w-full flex justify-between items-center px-4 mb-4 "}
           >
             <h1 className="font-semibold text-2xl text-gray-700 dark:text-gray-300">
-              {settingsOpen ? "Settings" : "Upcoming Contests"}
+              {settingsOpen ? "Settings" : "Contests Notifier"}
             </h1>
             <img
               className={`w-5 h-5 cursor-pointer ${

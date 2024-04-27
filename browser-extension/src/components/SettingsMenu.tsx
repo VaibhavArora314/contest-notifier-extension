@@ -1,8 +1,9 @@
 import React from "react";
-import { PLATFORM } from "../types/contest";
+import { DEFAULT_PLATFORMS } from "../hooks/useContests";
+import { MODE } from "../types/theme";
 
 type Props = {
-  theme: string;
+  theme: MODE;
   platforms: string[];
   setPlatforms: React.Dispatch<React.SetStateAction<string[]>>;
   setDarkMode: (val: boolean) => void;
@@ -53,36 +54,18 @@ const SettingsMenu = ({
             Select platforms:
           </label>
           <div className="flex flex-col w-full gap-1">
-            <label className="mr-2 text-lg flex flex-row w-full items-center justify-between dark:text-gray-300">
-              {PLATFORM.CODEFORCES}
-              <input
-                type="checkbox"
-                value={PLATFORM.CODEFORCES}
-                checked={platforms.includes(PLATFORM.CODEFORCES)}
-                onChange={handlePlatformChange}
-                className="mr-1"
-              />
-            </label>
-            <label className="mr-2 text-lg flex flex-row w-full items-center justify-between dark:text-gray-300">
-              {PLATFORM.CODECHEF}
-              <input
-                type="checkbox"
-                value={PLATFORM.CODECHEF}
-                checked={platforms.includes(PLATFORM.CODECHEF)}
-                onChange={handlePlatformChange}
-                className="mr-1"
-              />
-            </label>
-            <label className="mr-2 text-lg flex flex-row w-full items-center justify-between dark:text-gray-300">
-              {PLATFORM.LEETCODE}
-              <input
-                type="checkbox"
-                value={PLATFORM.LEETCODE}
-                checked={platforms.includes(PLATFORM.LEETCODE)}
-                onChange={handlePlatformChange}
-                className="mr-1"
-              />
-            </label>
+            {DEFAULT_PLATFORMS.map((p,index) => (
+              <label className="mr-2 text-lg flex flex-row w-full items-center justify-between dark:text-gray-300" key={p}>
+                {`${index+1}. ${p}`}
+                <input
+                  type="checkbox"
+                  value={p}
+                  checked={platforms.includes(p)}
+                  onChange={handlePlatformChange}
+                  className="mr-1"
+                />
+              </label>
+            ))}
           </div>
         </div>
       </div>
