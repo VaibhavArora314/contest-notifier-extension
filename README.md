@@ -1,5 +1,5 @@
-# Contest Notifier Web Extension
-Contest Notifier is a web extension designed to help you keep track of upcoming coding contests from various platforms like LeetCode, CodeChef, Codeforces and many more. With Contest List, you can easily view all the upcoming contests in one centralized place, making it convenient for you to plan your participation and preparation.
+# Contest Notifier Browser Extension
+Contest Notifier is a browser extension designed to help you keep track of upcoming coding contests from various platforms like LeetCode, CodeChef, Codeforces and many more. With Contest List, you can easily view all the upcoming contests in one centralized place, making it convenient for you to plan your participation and preparation.
 Install it from web store [here](https://chromewebstore.google.com/detail/contests-notifier/bdlfpnghogldhcpgiknambfhdmddjghi).
 
 ![image](https://github.com/VaibhavArora314/contest-notifier-extension/assets/84830429/d374ef27-4c03-40e3-a3aa-b85a82d232b3)
