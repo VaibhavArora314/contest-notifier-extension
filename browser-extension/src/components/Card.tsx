@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { CONTEST_INTERFACE, PLATFORM } from "../types/contest";
 
 type Props = {
@@ -18,14 +19,25 @@ const Card = ({ contest }: Props) => {
   else if (contest.site == PLATFORM.LEETCODE) logoUrl += "leetcode.png";
   else if (contest.site == PLATFORM.CODEFORCES) logoUrl += "codeforces.png";
   else if (contest.site == PLATFORM.ATCODER) logoUrl += "atcoder.png";
-  else if (contest.site == PLATFORM.GEEKSFORGEEKS) logoUrl += "geeksforgeeks.png";
-  else if (contest.site == PLATFORM.CODINGNINJAS) logoUrl += "codingninja.png"
+  else if (contest.site == PLATFORM.GEEKSFORGEEKS)
+    logoUrl += "geeksforgeeks.png";
+  else if (contest.site == PLATFORM.CODINGNINJAS) logoUrl += "codingninja.png";
 
-  const curTime = new Date();
+  const [curTime, setCurTime] = useState<Date>(new Date());
   let currentStatus: STATUS = STATUS.yetToStart;
   if (curTime > endDate) currentStatus = STATUS.ended;
   else if (curTime >= startDate && curTime <= endDate)
     currentStatus = STATUS.ongoing;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurTime(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
   return (
     <a
@@ -62,7 +74,7 @@ const Card = ({ contest }: Props) => {
           <div className="mb-2 flex items-center justify-start gap-1">
             <img className="w-3 h-3" src="images/black-dot.png" alt="" />
             <p className="mb-1 text-sm font-normal text-gray-600 dark:text-gray-200">
-              {STATUS.yetToStart}
+              {getRemainingTime(contest.startTime, curTime.getTime())}
             </p>
           </div>
         )}
@@ -96,6 +108,30 @@ const Card = ({ contest }: Props) => {
       </div>
     </a>
   );
+};
+
+const getRemainingTime = (startTime: number, curTime: number) => {
+  const remainingTimeSec = (startTime - curTime) / 1000;
+  const days = Math.floor(remainingTimeSec / (60 * 60 * 24));
+  const hours = Math.floor((remainingTimeSec / (60 * 60)) % 24);
+  const mins = Math.floor((remainingTimeSec / 60) % 60);
+  const sec = Math.floor(remainingTimeSec % 60);
+
+  let r: string = "Starts in ";
+  if (days >= 1)
+    r += `${days} ${days == 1 ? "day" : "days"}, ${hours} ${
+      hours == 1 ? "hr" : "hrs"
+    }`;
+  else if (hours >= 1)
+    r += `${hours} ${hours == 1 ? "hr" : "hrs"}, ${mins} ${
+      mins == 1 ? "min" : "mins"
+    }`;
+  else
+    r += `${mins} ${mins == 1 ? "min" : "mins"}, ${sec} ${
+      sec == 1 ? "sec" : "secs"
+    }`;
+
+  return r;
 };
 
 export default Card;
