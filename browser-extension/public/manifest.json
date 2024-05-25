@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "version": "1.1.1",
+    "version": "1.1.2",
     "name": "Contests Notifier",
     "action": {
         "default_popup": "index.html"
