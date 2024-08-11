@@ -25,9 +25,9 @@ const parseGfgContests = (data: [any]) => {
     const contest_name = element?.name || "Geeks for Geeks contest";
     const url = GFG_BASE_URL + element?.slug;
 
-    const startDate:Date = new Date(element?.start_time);
+    const startDate:Date = new Date(new Date(element?.start_time).getTime() - (5.5 * 60 * 60 * 1000));
     const startMs = startDate.getTime();
-    const endDate:Date = new Date(element?.end_time);
+    const endDate:Date = new Date(new Date(element?.end_time).getTime() - (5.5 * 60 * 60 * 1000));
     const endMs = endDate.getTime();
     const duration:number = Math.abs(endDate.getTime() - startDate.getTime())/(1000*60) || 120; // minutes
 
