@@ -23,7 +23,7 @@ const parseTable = ($:cheerio.CheerioAPI,tbody:cheerio.Cheerio<cheerio.Element>)
         const durationMinutes = Number(hours) * 60 + Number(minutes);
         
         const startTimeJST = new Date(formattedStartTimeIso);
-        const startTime = new Date(startTimeJST.getTime() - (3.5 * 60 * 60 * 1000)).getTime(); // JST is IST+3.5
+        const startTime = new Date(startTimeJST.getTime() - (8 * 60 * 60 * 1000)).getTime(); // To UTC
 
         const endTime = startTime + durationMinutes * 60 * 1000;
         
