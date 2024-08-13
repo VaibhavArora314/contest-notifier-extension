@@ -15,17 +15,6 @@ function App() {
   const { loading, error, contests, platforms, setPlatforms } = useContests();
   const { theme, setDarkMode } = useTheme();
 
-  // useEffect(() => {
-  //   chrome.tabs.onCreated.addListener(() => {
-  //     chrome.windows.create({
-  //       url: "index.html",
-  //       type: "popup",
-  //       width: 300,
-  //       height: 200,
-  //     })
-  //   })
-  // },[])
-
   return (
     <div className="min-h-screen px-4 py-6 bg-gray-100 dark:bg-gray-800 flex flex-col justify-between">
       <div className="container mx-auto h-full">

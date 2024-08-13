@@ -1,12 +1,16 @@
 {
-    "manifest_version": 3,
-    "version": "1.1.2",
-    "name": "Contests Notifier",
-    "action": {
-        "default_popup": "index.html"
-    },
-    "icons": {
-        "48": "logo/icons48.png",
-        "96": "logo/icons96.png"
-    }
+  "manifest_version": 3,
+  "version": "1.1.2",
+  "name": "Contests Notifier",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "48": "logo/icons48.png",
+    "96": "logo/icons96.png"
+  },
+  "permissions": ["alarms", "notifications"],
+  "background": {
+    "service_worker": "background.js"
+  }
 }

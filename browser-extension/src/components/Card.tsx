@@ -18,12 +18,14 @@ const Card = ({ contest }: Props) => {
   if (contest.site == PLATFORM.CODECHEF) logoUrl += "codechef.jpeg";
   else if (contest.site == PLATFORM.LEETCODE) logoUrl += "leetcode.png";
   else if (contest.site == PLATFORM.CODEFORCES) logoUrl += "codeforces.png";
-  else if (contest.site == PLATFORM.ATCODER) logoUrl += "atcoder.png";
+  else if (contest.site == PLATFORM.ATCODER) logoUrl += "atcoder1.png";
   else if (contest.site == PLATFORM.GEEKSFORGEEKS)
     logoUrl += "geeksforgeeks.png";
-  else if (contest.site == PLATFORM.CODINGNINJAS) logoUrl += "codingninja.png";
+  else if (contest.site == PLATFORM.CODINGNINJAS) logoUrl += "codingninja.jpg";
 
   const [curTime, setCurTime] = useState<Date>(new Date());
+  const [alarmSet, setAlarmSet] = useState<boolean>(false);
+
   let currentStatus: STATUS = STATUS.yetToStart;
   if (curTime > endDate) currentStatus = STATUS.ended;
   else if (curTime >= startDate && curTime <= endDate)
@@ -34,10 +36,33 @@ const Card = ({ contest }: Props) => {
       setCurTime(new Date());
     }, 1000);
 
+    chrome.alarms.get("contest_" + contest.title, (alarm) => {
+      if (alarm) setAlarmSet(true);
+    });
+
     return () => {
       clearInterval(interval);
     };
-  });
+  }, [contest.title]);
+
+  const handleToggleAlarm = () => {
+    const alarmTime = new Date(
+      new Date(contest.startTime).getTime() - 10 * 60 * 1000
+    ); // 10 minutes before local start time
+
+    if (alarmSet) {
+      chrome.alarms.clear("contest_" + contest.title, () => {
+        alert("Alarm removed for the contest!");
+        setAlarmSet(false);
+      });
+    } else {
+      chrome.alarms.create("contest_" + contest.title, {
+        when: alarmTime.getTime(),
+      });
+      alert("Alarm set for 10 minutes before the contest!");
+      setAlarmSet(true);
+    }
+  };
 
   return (
     <a
@@ -105,6 +130,17 @@ const Card = ({ contest }: Props) => {
         <p className="mb-2 font-normal text-gray-700 dark:text-gray-100">
           {`Duration (in mins): ${contest.duration}`}
         </p>
+        {currentStatus === STATUS.yetToStart && (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleToggleAlarm();
+            }}
+            className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 w-fit"
+          >
+            {alarmSet ? "Unset Alarm" : "Set Alarm"}
+          </button>
+        )}
       </div>
     </a>
   );
