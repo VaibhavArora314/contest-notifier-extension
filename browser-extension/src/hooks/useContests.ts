@@ -54,7 +54,7 @@ const useContests = () => {
     };
   }, [platforms]);
 
-  console.log(error,contests);
+  // console.log(error,contests);
 
   return { loading, error, contests, platforms, setPlatforms };
 };

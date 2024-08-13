@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CONTEST_INTERFACE } from "../types/contest";
 import Card from "./Card";
 import Loader from "./Loader";
+import FilterMenu from "./FilterMenu";
 
 type Props = {
   loading: boolean;
@@ -72,23 +73,9 @@ const ContestList = ({ loading, error, contests }: Props) => {
             <p>Please check your internet connection.</p>
           </span>
         )}
-        <div className="self-start flex items-center gap-4 flex-wrap">
-          {["All", "Ongoing", "In next 24hrs", "In next 7days"].map(
-            (option) => (
-              <button
-                key={option}
-                onClick={() => setFilter(option)}
-                className={`p-2 text-sm rounded-md ${
-                  filter === option
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-2 border-gray-200"
-                }`}
-              >
-                {option}
-              </button>
-            )
-          )}
-        </div>
+      <FilterMenu curFilter={filter} updateFilter={(option:string) => {
+        setFilter(option);
+      }} />
       </div>
       {filteredContests.length > 0 ? (
         <>
