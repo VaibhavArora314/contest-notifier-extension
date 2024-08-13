@@ -31,11 +31,14 @@ const SettingsMenu = ({
 
   return (
     <div className="p-4 pt-2 w-full">
-      <div className="p-4 pt-0 w-full">
+      <div className="pt-0 w-full">
+        <h2 className="font-semibold text-lg text-gray-800 dark:text-gray-200">
+          Settings
+        </h2>
         <div className="flex flex-row justify-between w-full items-center mb-4">
           <label
             htmlFor="themeSelect"
-            className="mr-2 text-xl text-gray-700 dark:text-gray-300"
+            className="mr-2 text-lg text-gray-700 dark:text-gray-300"
           >
             Choose theme:
           </label>
@@ -49,20 +52,23 @@ const SettingsMenu = ({
             <option value="dark">Dark</option>
           </select>
         </div>
-        <div className="flex flex-col justify-between w-full items-start mb-4 gap-2">
-          <label className="mr-2 text-xl text-gray-700 dark:text-gray-300">
+        <div className="flex flex-col justify-between w-full items-start mb-4 gap-3">
+          <label className="text-lg font-semibold text-gray-800 dark:text-gray-200">
             Select platforms:
           </label>
-          <div className="flex flex-col w-full gap-1">
-            {DEFAULT_PLATFORMS.map((p,index) => (
-              <label className="mr-2 text-lg flex flex-row w-full items-center justify-between dark:text-gray-300" key={p}>
-                {`${index+1}. ${p}`}
+          <div className="flex flex-col w-full gap-2">
+            {DEFAULT_PLATFORMS.map((p, index) => (
+              <label
+                className="flex flex-row w-full items-center justify-between text-lg text-gray-800 dark:text-gray-300"
+                key={p}
+              >
+                {`${index + 1}. ${p}`}
                 <input
                   type="checkbox"
                   value={p}
                   checked={platforms.includes(p)}
                   onChange={handlePlatformChange}
-                  className="mr-1"
+                  className="mr-2"
                 />
               </label>
             ))}

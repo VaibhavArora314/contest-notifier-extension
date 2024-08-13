@@ -3,6 +3,7 @@ import { CONTEST_INTERFACE, PLATFORM } from "../types/contest";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import AlarmOffIcon from "@mui/icons-material/AlarmOff";
+import { toast } from "react-toastify";
 
 type Props = {
   contest: CONTEST_INTERFACE;
@@ -55,14 +56,14 @@ const Card = ({ contest }: Props) => {
 
     if (alarmSet) {
       chrome.alarms.clear("contest_" + contest.title, () => {
-        alert("Alarm removed for the contest!");
+        toast("Alarm removed for the contest!");
         setAlarmSet(false);
       });
     } else {
       chrome.alarms.create("contest_" + contest.title, {
         when: alarmTime.getTime(),
       });
-      alert("Alarm set for 10 minutes before the contest!");
+      toast("Alarm set for 10 minutes before the contest!");
       setAlarmSet(true);
     }
   };
