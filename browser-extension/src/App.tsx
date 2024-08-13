@@ -1,17 +1,16 @@
 import "./App.css";
 import axios from "axios";
 import ContestList from "./components/ContestList";
-import { useState } from "react";
 import SettingsMenu from "./components/SettingsMenu";
 import useTheme from "./hooks/useTheme";
 import Credits from "./components/Credits";
 import useContests from "./hooks/useContests";
+import { Link, Route, Routes } from "react-router-dom";
 
 // axios.defaults.baseURL = "http://localhost:3000/api";
 axios.defaults.baseURL = "https://cp-list.vercel.app/api";
 
 function App() {
-  const [settingsOpen, setSettingsOpen] = useState(false);
   const { loading, error, contests, platforms, setPlatforms } = useContests();
   const { theme, setDarkMode } = useTheme();
 
@@ -22,31 +21,43 @@ function App() {
           <div
             className={"w-full flex justify-between items-center px-4 mb-4 "}
           >
-            <h1 className="font-semibold text-2xl text-gray-700 dark:text-gray-300">
-              {settingsOpen ? "Settings" : "Contests Notifier"}
-            </h1>
+            <Link to="/" className="font-semibold text-2xl text-gray-700 dark:text-gray-300">
+              Contests Notifier
+            </Link>
+            <Link to="/settings">
             <img
               className={`w-5 h-5 cursor-pointer ${
                 theme === "dark" ? "filter invert" : ""
-              }`}
-              src={settingsOpen ? "images/close.png" : "images/setting.png"}
-              alt="settings"
-              onClick={() => {
-                setSettingsOpen((val) => !val);
-              }}
-            />
+                }`}
+                src="images/setting.png"
+                alt="settings"
+                />
+              </Link>
           </div>
 
-          {settingsOpen ? (
-            <SettingsMenu
-              theme={theme}
-              setDarkMode={setDarkMode}
-              platforms={platforms}
-              setPlatforms={setPlatforms}
+          <Routes>
+            <Route
+              path="/settings"
+              element={
+                <SettingsMenu
+                  theme={theme}
+                  setDarkMode={setDarkMode}
+                  platforms={platforms}
+                  setPlatforms={setPlatforms}
+                />
+              }
             />
-          ) : (
-            <ContestList loading={loading} error={error} contests={contests} />
-          )}
+            <Route
+              path="*"
+              element={
+                <ContestList
+                  loading={loading}
+                  error={error}
+                  contests={contests}
+                />
+              }
+            />
+          </Routes>
         </div>
       </div>
       <Credits />

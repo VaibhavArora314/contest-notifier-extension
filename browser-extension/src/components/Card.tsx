@@ -14,11 +14,11 @@ enum STATUS {
 const Card = ({ contest }: Props) => {
   const startDate = new Date(contest.startTime),
     endDate = new Date(contest.endTime);
-  let logoUrl = "images/";
+  let logoUrl = "images/platforms/";
   if (contest.site == PLATFORM.CODECHEF) logoUrl += "codechef.jpeg";
   else if (contest.site == PLATFORM.LEETCODE) logoUrl += "leetcode.png";
   else if (contest.site == PLATFORM.CODEFORCES) logoUrl += "codeforces.png";
-  else if (contest.site == PLATFORM.ATCODER) logoUrl += "atcoder1.png";
+  else if (contest.site == PLATFORM.ATCODER) logoUrl += "atcoder.png";
   else if (contest.site == PLATFORM.GEEKSFORGEEKS)
     logoUrl += "geeksforgeeks.png";
   else if (contest.site == PLATFORM.CODINGNINJAS) logoUrl += "codingninja.jpg";
