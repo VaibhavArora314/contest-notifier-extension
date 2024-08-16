@@ -45,7 +45,7 @@ const ContestList = ({ loading, error, contests }: Props) => {
 
   if (loading && contests.length === 0)
     return (
-      <div className="h-full flex flex-col justify-center min-h-[40vh]">
+      <div className="h-full flex flex-col justify-center min-h-[40vh] items-center">
         <Loader />
       </div>
     );
@@ -53,7 +53,7 @@ const ContestList = ({ loading, error, contests }: Props) => {
   if (error && contests.length === 0)
     return (
       <div className="h-full flex flex-col justify-center min-h-[40vh]">
-        <h3 className="font-semibold text-sm text-red-500 dark:text-red-400">
+        <h3 className="font-semibold text-sm text-red-500 dark:text-red-400 text-center">
           An unexpected error occurred
         </h3>
       </div>
