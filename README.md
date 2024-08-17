@@ -1,44 +1,45 @@
-# Contest Notifier Browser Extension
-Contest Notifier is a browser extension designed to help you keep track of upcoming coding contests from various platforms like LeetCode, CodeChef, Codeforces and many more. With Contest List, you can easily view all the upcoming contests in one centralized place, making it convenient for you to plan your participation and preparation.
-Install it from web store [here](https://chromewebstore.google.com/detail/contests-notifier/bdlfpnghogldhcpgiknambfhdmddjghi).
+# 🚀 **Contest Notifier Browser Extension**
+Introducing **Contest Notifier** - Your all-in-one solution to enhance your coding contest experience! This web extension centralizes and customizes your contest tracking, with smart reminders and time-based filtering to keep you on top of your game. 🎯
 
-![image](https://github.com/VaibhavArora314/contest-notifier-extension/assets/84830429/d374ef27-4c03-40e3-a3aa-b85a82d232b3)
-![image](https://github.com/VaibhavArora314/contest-notifier-extension/assets/84830429/343f5e7c-0f4a-4779-b6d5-940c3933d2dc)
+🔗 **Install it from the web store [here](https://chromewebstore.google.com/detail/contests-notifier/bdlfpnghogldhcpgiknambfhdmddjghi).**
 
+![2](https://github.com/user-attachments/assets/d83a18de-9b72-4cab-b258-7288edc4b350)
 
-## Tech Stack:
-- Typescript
-- Reactjs
-- Nodejs
+## 🛠 **Tech Stack:**
+- **TypeScript**
+- **React.js**
+- **Node.js**
 
-## Features
-- Unified Contest List: View upcoming contests from LeetCode, CodeChef, and Codeforces in one place.
-- Detailed Contest Information: Get detailed information about each contest, including start time, end time, and platform.
-- User-friendly Interface: A simple and intuitive interface that makes it easy to browse through upcoming contests.
-<!--- - Customizable Notifications: Set up notifications to remind you about upcoming contests so you never miss out. --->
+## ✨ **Features**
+1. 📅 **Centralized Contest Tracking**: View upcoming and ongoing contests from platforms like LeetCode, CodeChef, Codeforces, AtCoder, GeeksforGeeks, and CodingNinjas all in one place.
+2. 🎯 **Customizable Platform & Time Selection**: Filter contests by your preferred platforms and timeframes, such as ongoing or starting within the next 24 hours.
+3. ⏰ **Smart Reminder System**: Receive a reminder 10 minutes before a contest begins when you’ve set an alarm. (Make sure your device's Do Not Disturb is off to receive notifications)
 
-## Installation
-- Chrome
-  - Download the [contest-list.zip file](https://github.com/VaibhavArora314/contest-notifier-extension/tree/main/browser-extension/versions) from the GitHub repository.
-  - Unzip the file.
-  - Open Chrome and go to chrome://extensions/.
-  - Enable "Developer mode" in the top right corner.
-  - Click on "Load unpacked" and select the unzipped contest-list folder.
-- Firefox
-  - Download the [contest-list.zip file](https://github.com/VaibhavArora314/contest-notifier-extension/tree/main/browser-extension/versions) from the GitHub repository.
-  - Unzip the file.
-  - Open Firefox and go to about:debugging#/runtime/this-firefox.
-  - Click on "Load Temporary Add-on" and select any file from the unzipped contest-list folder.
+🔒 **Privacy First:** We don’t store any of your data. Contest Notifier simply fetches and displays contest information.
 
-## Usage
-Once installed, click on the Contest List icon in your browser toolbar to open the extension.
-Browse through the list of upcoming contests.
-Click on a contest to view detailed information.
+## 📥 **Installation**
+### Chrome
+- 📦 Download the [contest-list.zip file](https://github.com/VaibhavArora314/contest-notifier-extension/tree/main/browser-extension/versions) from the GitHub repository.
+- 📂 Unzip the file.
+- 🌐 Open Chrome and go to `chrome://extensions/`.
+- ⚙️ Enable "Developer mode" in the top right corner.
+- 📤 Click on "Load unpacked" and select the unzipped contest-list folder.
 
-## Contributing
-Contributions are Welcome! You can contribute in the following ways.
-- Create an Issue - Propose a new feature. Report a bug.
-- Pull Request - Fix a bug and typo. Refactor the code.
+### Firefox
+- 📦 Download the [contest-list.zip file](https://github.com/VaibhavArora314/contest-notifier-extension/tree/main/browser-extension/versions) from the GitHub repository.
+- 📂 Unzip the file.
+- 🦊 Open Firefox and go to `about:debugging#/runtime/this-firefox`.
+- 📥 Click on "Load Temporary Add-on" and select any file from the unzipped contest-list folder.
 
-## License
+## 📊 **Usage**
+1. 🖱️ Click on the Contest List icon in your browser toolbar to open the extension.
+2. 📜 Browse through the list of upcoming contests.
+3. 🔍 Click on a contest to view detailed information.
+
+## 🤝 **Contributing**
+Contributions are Welcome! You can contribute in the following ways:
+- 🛠 **Create an Issue** - Propose a new feature or report a bug.
+- 🔧 **Pull Request** - Fix a bug, typo, or refactor the code.
+
+## 📄 **License**
 This project is licensed under the MIT License. See the [LICENSE file](https://github.com/VaibhavArora314/contest-notifier-extension/blob/main/LICENSE) for details.
