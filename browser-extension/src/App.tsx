@@ -18,11 +18,6 @@ function App() {
   const { loading, error, contests, platforms, setPlatforms } = useContests();
   const { theme, setDarkMode } = useTheme();
 
-  // useEffect(() => {
-  //   console.log(chrome.alarms.getAll());
-  //   // chrome.alarms.clearAll();
-  // },[])
-
   return (
     <>
       <div className="min-h-screen px-4 py-6 bg-gray-100 dark:bg-gray-800 flex flex-col justify-between items-center">

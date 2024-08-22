@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "version": "1.1.2",
+  "version": "1.1.4",
   "name": "Contests Notifier",
+  "description": "Contest Notifier is your go-to extension for tracking all coding contests and receiving timely notifications.",
   "action": {
     "default_popup": "index.html"
   },
