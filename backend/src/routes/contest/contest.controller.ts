@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { CONTEST_INTERFACE, PLATFORM } from "../../types";
 import { atcoderContests, codechefContests, codeforcesContests, codingninjaContests, gfgContests, leetcodeContests, refreshCache } from "../../platforms/cache";
 
-const defaultArray = [PLATFORM.CODECHEF, PLATFORM.CODEFORCES, PLATFORM.LEETCODE];
+const defaultArray = Object.values(PLATFORM);
 const DURATION_LIMIT = 15*24*60;
 
 export const UpcomingContestsController = async (
